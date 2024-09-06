@@ -42,7 +42,7 @@ const handleEnviar =async() =>{
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
       <div className="bg-white shadow-md rounded-lg p-6 max-w-md w-full">
-        <h1 className="text-2xl font-bold text-center text-blue-500 mb-6">Crear Incidente</h1>
+        <h1 className="text-2xl font-bold text-center text-blue-900 mb-6">Crear Incidente</h1>
 
         <Select setValue={setType} value={type} options={options} />
           <div className="mt-6">
@@ -78,7 +78,7 @@ const handleEnviar =async() =>{
             />
           </div>
 
-          <button onClick={handleEnviar} className="bg-green-500 text-white rounded-lg py-2 px-4 w-full hover:bg-green-600 transition duration-300">
+          <button onClick={handleEnviar} className="bg-orange-300 text-white rounded-lg py-2 px-4 w-full hover:bg-green-600 transition duration-300">
             Editar Incidencia
           </button>
        

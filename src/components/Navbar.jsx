@@ -9,7 +9,7 @@ const Navbar = () => {
     <div className="w-64 h-screen bg-gray-100 p-4 shadow-lg px-10">
       <div className="flex justify-between items-center">
         <Link to="/dashboard">
-          <img src="/logo2.png" alt="Logo" className="w-34" />
+          <img src="/logo_edificio3.jpg" alt="Logo" className="w-34" />
         </Link>
       </div>
 
@@ -29,11 +29,17 @@ const Navbar = () => {
               </button>
             </li> */}
           
-             <button className="w-full px-4 border border-gray-700 rounded-lg py-2 text-gray-700 hover:bg-gray-200">
-              <Link to="/incidente/create">
-                Registrar Incidente
-              </Link>
-            </button>
+          <button className="w-full px-4 border border-gray-700 rounded-lg py-2 text-gray-700 bg-gray-400 hover:bg-gray-200 mb-4">
+  <Link to="/incidente/create">
+    Registrar Incidente
+  </Link>
+</button>
+{/* falta  conectar la ruta para leer la respuesta  */}
+<button className="w-full px-4 border border-gray-700 rounded-lg py-2 text-gray-700 bg-gray-400 hover:bg-gray-200">
+  <Link to="/incidente/id">
+    Respuesta
+  </Link>
+</button>
           </ul>
         )}
 

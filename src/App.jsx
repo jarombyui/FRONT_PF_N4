@@ -10,10 +10,12 @@ import VideoPage from './Pages/Student/VideoPage'
 import AlumnosTable from './Pages/Teacher/AlumnosTable'
 import NewIncidentPage from './Pages/Teacher/NewIncidentPage'
 import EditIncidentPage from './Pages/Teacher/EditIncidentPage'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
   return (
-    
+    <div>
     <Routes>
       <Route path='/' element={ <Rediriguir/>}/>
       <Route path='/login' element={<LoginPage />} />
@@ -27,5 +29,7 @@ export default function App() {
         <Route path='/incidente/create' element={<NewIncidentPage/>}/>
       </Route>
     </Routes>
+    <ToastContainer />
+    </div>
   )
 }

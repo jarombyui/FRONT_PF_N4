@@ -24,7 +24,7 @@ export const Modal = ({ setShowModal }) => {
             className="w-[20px] h-[20px]"
           />
         </figure>
-        <h1 onClick={handleProfileClick} className="font-medium text-[14px] text-[#4f4f4f]">Mi cuenta </h1>
+        <h1 onClick={handleProfileClick} className="font-medium text-[14px] text-[#4f4f4f]">Mi perfil </h1>
       </button>
 
       <button

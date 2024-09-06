@@ -12,7 +12,7 @@ export default function DashboardPageStudent() {
     <MainLayout>
       <main className="flex flex-1 flex-col items-center justify-center p-4">
         <h1 className="text-2xl font-bold mb-4 text-center">
-          Bienvenido, {nombres || 'Estudiante'}
+          Bienvenido, {nombres || 'estimado residente'}
         </h1>
         <Fotocheck
           data={dataUser?.data}

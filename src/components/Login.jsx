@@ -13,11 +13,11 @@ const Login = () => {
   }
 
   return (
-    <main className="bg-[url('/wallpaper-login.jpg')] h-screen w-screen flex justify-center items-center">
-      <div className=" sm:h-1vh sm:w-[70%] rounded-xl bg-white flex flex-col  sm:flex-row">
+    <main className="bg-[url('/LOGO_LOGIN2.jpeg')] h-screen w-screen flex justify-center items-center">
+      <div className=" sm:h-1vh sm:w-[70%] rounded-xl bg-blue-900 flex flex-col  sm:flex-row">
         <div className="sm:w-[50%] w-full  sm:border-r sm:border-r-gray-400 flex flex-col justify-between gap-5 my-3 p-2 items-center">
           <figure className="h-[25%] w-[70%]">
-            <img src="/logo 2023.png" alt="" className="w-full h-full" />
+            <img src="logo_edificio3.jpg" alt="" className="w-full h-full" />
           </figure>
 
           <form onSubmit={handleLogin}
@@ -26,7 +26,7 @@ const Login = () => {
           >
             <label
               htmlFor=""
-              className="border border-gray-500 rounded-lg p-[2%]"
+              className="bg-blue-900 border border-gray-500 rounded-lg p-[2%]"
             >
               <input
                 type="text"
@@ -35,7 +35,7 @@ const Login = () => {
                 className="outline-none"
               />
             </label>
-            <label htmlFor="password" className="border border-gray-500 p-2 rounded-lg flex items-center justify-between">
+            <label htmlFor="password" className=" bg-blue-900  border border-gray-500 p-2 rounded-lg flex items-center justify-between">
               <input
                 id="password"
                 type={showPassword ? "text" : "password"}
@@ -94,7 +94,7 @@ const Login = () => {
             >
               Acceder
             </button>
-            <a type= "text" href="" className="text-blue-700">
+            <a type= "text" href="" className="text-orange-700 text-center">
               ¿ Olvido su contraseña ?
             </a>
           </form>
