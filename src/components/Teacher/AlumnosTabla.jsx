@@ -6,17 +6,31 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
-function createData(id, nombres, apellidos, email) {
-  return { id, nombres, apellidos, email };
-}
-
-const rows = [
-  createData(1, 'Juan Esteban', 'Perez Martinez', 'juan@gmail.com'),
-  // Puedes agregar más datos aquí
-];
+import { getReports } from '../../services/DataService';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
 export default function AlumnosTabla() {
+
+  const [rows,setRows]=useState([])
+
+  const navigate = useNavigate()
+
+  const getData=async()=>{
+    try {
+      const data = await getReports()
+      setRows(data)
+    } catch (error) {
+      setRows([])
+    }
+   
+   }
+  useEffect(() => {
+   getData()
+  }, [])
+
+
   return (
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4 text-center">Alumnos</h2>
@@ -25,9 +39,11 @@ export default function AlumnosTabla() {
           <TableHead>
             <TableRow>
               <TableCell>Id</TableCell>
-              <TableCell align="center">Nombres</TableCell>
-              <TableCell align="center">Apellidos</TableCell>
-              <TableCell align="center">Email</TableCell>
+              <TableCell align="center">Tipo</TableCell>
+              <TableCell align="center">Decripción</TableCell>
+              <TableCell align="center">Locación</TableCell>
+              <TableCell align="center">Reporttado por</TableCell>
+              <TableCell align="center">Acción</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -37,11 +53,17 @@ export default function AlumnosTabla() {
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {row.id}
+                  {row?.id_incident}
                 </TableCell>
-                <TableCell align="center">{row.nombres}</TableCell>
-                <TableCell align="center">{row.apellidos}</TableCell>
-                <TableCell align="center">{row.email}</TableCell>
+                <TableCell align="center">{row?.incident_type}</TableCell>
+                <TableCell align="center">{row?.descripcion}</TableCell>
+                <TableCell align="center">{row?.location}</TableCell>
+                <TableCell align="center">{row?.reported_by}</TableCell>
+                <TableCell align="center">  <button onClick={()=>navigate(`/reportes/${row?.id_incident}`)} className="bg-green-500 text-white rounded-lg py-2 px-4 w-full hover:bg-green-600 transition duration-300">
+            Editar
+          </button></TableCell>
+
+                
               </TableRow>
             ))}
           </TableBody>

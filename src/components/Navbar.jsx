@@ -21,20 +21,19 @@ const Navbar = () => {
                 <span className="font-bold text-gray-700">General</span>
               </div>
             </li>
-            <li className="mb-2">
+            {/* <li className="mb-2">
               <button className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-200">
-                <Link to="/examenes">
-                  Exámenes
+                <Link to="/reportes">
+                Mis reportes
                 </Link>
               </button>
-            </li>
-            <li className="mb-2">
-              <button className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-200">
-                <Link to="/videos/me">
-                  Mis Videos
-                </Link>
-              </button>
-            </li>
+            </li> */}
+          
+             <button className="w-full px-4 border border-gray-700 rounded-lg py-2 text-gray-700 hover:bg-gray-200">
+              <Link to="/incidente/create">
+                Registrar Incidente
+              </Link>
+            </button>
           </ul>
         )}
 
@@ -46,27 +45,17 @@ const Navbar = () => {
                   <span className="font-bold text-gray-700">General</span>
                 </div>
               </li>
+              
               <li className="mb-2">
                 <button className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-200">
-                  <Link to="/examenes">
-                    Exámenes
-                  </Link>
-                </button>
-              </li>
-              <li className="mb-2">
-                <button className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-200">
-                  <Link to="/alumnos">
-                    Mis Alumnos
+                  <Link to="/reportes">
+                    Mis reportes
                   </Link>
                 </button>
               </li>
             </ul>
 
-            <button className="w-full px-4 border border-gray-700 rounded-lg py-2 text-gray-700 hover:bg-gray-200">
-              <Link to="/examen/create">
-                Nuevo examen
-              </Link>
-            </button>
+           
           </div>
         )}
       </div>

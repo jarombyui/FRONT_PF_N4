@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
         mutationFn: loginUser,
         onError: error => alert(error.response?.data?.message),
         onSuccess: data => {
-            localStorage.setItem('token', data.token);
+            localStorage.setItem('token', data?.token);
             navigate('/dashboard');
         },
     });

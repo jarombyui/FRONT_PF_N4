@@ -8,7 +8,8 @@ import Examenespages from './Pages/Student/Examenespages'
 import Exampage from './Pages/Student/Exampage'
 import VideoPage from './Pages/Student/VideoPage'
 import AlumnosTable from './Pages/Teacher/AlumnosTable'
-import NewExamPage from './Pages/Teacher/NewExamPage'
+import NewIncidentPage from './Pages/Teacher/NewIncidentPage'
+import EditIncidentPage from './Pages/Teacher/EditIncidentPage'
 
 export default function App() {
   return (
@@ -21,8 +22,9 @@ export default function App() {
         <Route path='/examenes' element={<Examenespages/>} />
         <Route path='/examenes/:id' element={<Exampage/>} />
         <Route path='/videos/me' element={<VideoPage/>} />
-        <Route path='/alumnos' element={<AlumnosTable/>}/>
-        <Route path='/examen/create' element={<NewExamPage/>}/>
+        <Route path='/reportes' element={<AlumnosTable/>}/>
+        <Route path='/reportes/:id' element={<EditIncidentPage/>} />
+        <Route path='/incidente/create' element={<NewIncidentPage/>}/>
       </Route>
     </Routes>
   )
