@@ -96,13 +96,14 @@ export const getExamenesByCurso = async (cursoId, token) => {
   
   };
 
-  export const updateIncident = async (props,id) => {
+  export const updateIncident = async (props, id) => {
     try {
-      const {data} = await axiosServices.put(`/incidents/inc/${id}`, props) 
+      const { data } = await axiosServices.put(`/incidents/inc/${id}`, props);
+      console.log('Respuesta del servidor:', data); // Añade este log
       return data;
     } catch (error) {
-      console.log({error})
-      throw 'HUBO UN ERROR'
+      console.log('Error en updateIncident:', error.response ? error.response.data : error.message);
+      throw 'HUBO UN ERROR';
     }
   };
 
