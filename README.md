@@ -1,8 +1,30 @@
-# React + Vite
+ INCIDENT APP : Instrucciones de Uso
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ - Credenciales del usuario Residente: 'user'
 
-Currently, two official plugins are available:
+password: paco123 | pacoo@example.com
+password: Paco123123
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+password: elena123 | Elena123@gmail.com
+password: Elena23123
+
+- Credenciales del usuario Administrador:  'admin'
+
+username : Max123 |  Max123@gmail.com
+
+
+*** FUNCIONALIDADES : usuario
+-logearse / deslogearse
+-registrar un incidente.
+
+*** FUNCIONALIDADES : admin
+-logearse / deslogearse
+-registrar un nuevo usuario
+-registrar un incidente.
+-leer/traer  todos los incidentes
+-leer/traer los incidentes por id
+-leer/traer  todos los usuarios
+-leer/traer los usuarios por id
+-eliminar usuarios
+-eliminar inidentes
+
