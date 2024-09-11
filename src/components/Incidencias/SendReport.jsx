@@ -12,17 +12,20 @@ export const Report = () => {
         setError('');
         setSuccess(false);
         const formData = new FormData(e.target);
+        formData.append("usuario_id", usuario_id)
+
+        formData.append("estado", "en_proceso")
         
-        const reportData = {
-            usuario_id: parseInt(usuario_id), 
-            asunto: formData.get('asunto'),
-            descripcion: formData.get('descripcion'),
-            tipo: formData.get('tipo'),
-            estado: 'en_proceso'
-        };
+        // const reportData = {
+        //     usuario_id: parseInt(usuario_id), 
+        //     asunto: formData.get('asunto'),
+        //     descripcion: formData.get('descripcion'),
+        //     tipo: formData.get('tipo'),
+        //     estado: 'en_proceso'
+        // };
 
         try {
-            await createReport.mutateAsync(reportData);
+            await createReport.mutateAsync(formData);
             e.target.reset();
             setSuccess(true);
             setTimeout(() => setSuccess(false), 5000);
@@ -84,6 +87,7 @@ export const Report = () => {
                         </select>
                     </label>
                 </div>
+                <input className='' id='photo' name='photo' type="file" />
                 {error && <p className='text-red-500 text-sm'>{error}</p>}
                 <button 
                     className='w-full py-2 bg-orange-500 text-white font-semibold rounded-md shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-blue-500' 
