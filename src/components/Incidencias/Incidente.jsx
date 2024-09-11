@@ -40,7 +40,7 @@ export const Incident = () => {
     return (
         <section className='w-full h-screen flex flex-col gap-4 bg-blue-50 p-4'>
             <header className='w-full flex flex-col gap-4 sm:flex-row items-center justify-between mb-4'>
-                <h2 className='text-2xl font-bold text-purple-700'>Tus Reportes</h2>
+                <h2 className='text-2xl font-bold text-blue-800'>Mis incidencias </h2>
                 <div className='flex flex-col sm:flex-row items-start sm:items-center gap-4'>
                     <label className='text-blue-600 flex items-center gap-2'>
                         Estado:
@@ -79,10 +79,10 @@ export const Incident = () => {
                     <thead>
                         <tr className="bg-blue-100 border-b border-blue-300">
                             <th className="py-2 px-4 text-center text-blue-600">Asunto</th>
-                            <th className="py-2 px-4 text-center text-blue-600">Descripción</th>
-                            <th className="py-2 px-4 text-center text-blue-600">Tipo</th>
-                            <th className="py-2 px-4 text-center text-blue-600">Estado</th>
-                            <th className="py-2 px-4 text-center text-blue-600">Accion</th>
+                            <th className="py-2 px-4 text-center text-orange-400">Descripción</th>
+                            <th className="py-2 px-4 text-center text-green-600">Tipo</th>
+                            <th className="py-2 px-4 text-center text-purple-600">Estado</th>
+                            <th className="py-2 px-4 text-center text-red-700">Accion</th>
                         </tr>
                     </thead>
                     <tbody>
