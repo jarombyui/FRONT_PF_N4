@@ -1,72 +1,141 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { Authcontext } from '../context/AuthContext';
+import React, { useContext, useState } from "react";
+import { Link } from "wouter";
+import { AuthContext } from "../context/AuthContex";
+import {
+  ChevronDown,
+  Users,
+  FileText,
+  UserPlus,
+  Home,
+  LogOut,
+  User,
+} from "lucide-react";
+import { BuildingOfficeIcon } from "@heroicons/react/24/solid";
 
-const Navbar = () => {
-  const { dataUser } = useContext(Authcontext);
+const OpcionesAdm = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const options = [
+    { to: "/dashboard/users", icon: Users, text: "Usuarios" },
+    { to: "/dashboard/incidentAll", icon: FileText, text: "Reportes" },
+    { to: "/dashboard/create", icon: UserPlus, text: "Crear Usuario" },
+  ];
 
   return (
-    <div className="w-64 h-screen bg-gray-100 p-4 shadow-lg px-10">
-      <div className="flex justify-between items-center">
-        <Link to="/dashboard">
-          <img src="/logo_edificio3.jpg" alt="Logo" className="w-34" />
-        </Link>
-      </div>
-
-      <div className="mt-6">
-        {dataUser?.role === 'user' && (
-          <ul>
-            <li className="mb-4">
-              <div className="flex items-center">
-                <span className="font-bold text-gray-700">General</span>
-              </div>
-            </li>
-            {/* <li className="mb-2">
-              <button className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-200">
-                <Link to="/reportes">
-                Mis reportes
-                </Link>
-              </button>
-            </li> */}
-          
-          <button className="w-full px-4 border border-gray-700 rounded-lg py-2 text-gray-700 bg-gray-400 hover:bg-gray-200 mb-4">
-  <Link to="/incidente/create">
-    Registrar Incidente
-  </Link>
-</button>
-{/* falta  conectar la ruta para leer la respuesta  */}
-<button className="w-full px-4 border border-gray-700 rounded-lg py-2 text-gray-700 bg-gray-400 hover:bg-gray-200">
-  <Link to="/incidente/id">
-    Respuesta
-  </Link>
-</button>
-          </ul>
-        )}
-
-        {dataUser?.role === 'admin' && (
-          <div className="flex flex-col gap-4">
-            <ul>
-              <li className="mb-4">
-                <div className="flex items-center">
-                  <span className="font-bold text-gray-700">General</span>
-                </div>
-              </li>
-              
-              <li className="mb-2">
-                <button className="w-full text-left px-4 py-2 rounded-lg bg-gray-400 text-gray-700 hover:bg-gray-200">
-                  <Link to="/reportes">
-                    Mis reportes
-                  </Link>
-                </button>
-              </li>
-            </ul>
-
-           
-          </div>
-        )}
-      </div>
+    <div className="relative">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center space-x-1 bg-orange-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition duration-300"
+      >
+        <span>Admin</span>
+        <ChevronDown
+          className={`h-4 w-4 transition-transform duration-300 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      {isOpen && (
+        <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
+          {options.map((option, index) => (
+            <Link
+              key={index}
+              href={option.to}
+              className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 transition duration-300"
+            >
+              <option.icon className="h-4 w-4 mr-2 text-indigo-500" />
+              <span>{option.text}</span>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
 
-export default Navbar;
+const OpcionesUser = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const options = [
+    { to: "/dashboard/report", text: "Reportar un problema" },
+    { to: "/dashboard/incident", text: "Ver mis reportes" },
+  ];
+
+  return (
+    <div className="relative">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center space-x-1 bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded transition duration-300"
+      >
+        <span>Opciones</span>
+        <ChevronDown
+          className={`h-4 w-4 transition-transform duration-300 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      {isOpen && (
+        <div className="absolute right-0 mt-2 w-64 bg-white rounded-md shadow-lg py-1 z-10">
+          {options.map((option, index) => (
+            <Link
+              key={index}
+              href={option.to}
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100 transition duration-300"
+            >
+              {option.text}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export const Navbar = () => {
+  const { infoUser, logout } = useContext(AuthContext);
+
+  return (
+    <nav className="bg-gradient-to-r from-gray-900 to-gray-800 text-white shadow-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16">
+          <div className="flex-shrink-0 flex items-center">
+            <Link href="/dashboard" className="flex items-center ">
+              <BuildingOfficeIcon className="h-8 w-8" />
+              <span className="ml-2 text-xl font-bold hidden md:block">
+                Home
+              </span>
+            </Link>
+          </div>
+          <div className="flex items-center space-x-4">
+            {infoUser && (
+              <>
+                <div className="flex items-center">
+                  <User className="h-5 w-5 mr-2" />
+                  <span className="text-sm font-medium">
+                    {infoUser.rol === "administrador" ? "Admin" : "Resident"}:{" "}
+                    {infoUser.nombre}
+                  </span>
+                </div>
+                {infoUser.rol === "administrador" ? (
+                  <OpcionesAdm />
+                ) : (
+                  <OpcionesUser />
+                )}
+              </>
+            )}
+            <Link
+              href="/dashboard/profile"
+              className="bg-orange-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded inline-flex items-center transition duration-300"
+            >
+              Perfil
+            </Link>
+            <button
+              onClick={logout}
+              className="bg-orange-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded inline-flex items-center transition duration-300"
+            >
+              <LogOut className="h-4 w-4 mr-2" />
+              <span>Logout</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};

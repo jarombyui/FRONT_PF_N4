@@ -6,26 +6,18 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        PrincipalFont : [ "Roboto Slab", 'serif']
+      colors: {
+        primary: '#6D28D9', 
+        secondary: '#9333EA', 
+        accent: '#4F46E5', 
+        background: '#F3F4F6', 
+        muted: '#D1D5DB', 
+        textPrimary: '#1F2937', 
+        textSecondary: '#6B7280', 
+        borderColor: '#E5E7EB', 
+        buttonPrimary: '#6D28D9', 
+        buttonHover: '#5B21B6', 
       },
-      colors : {
-        'primary-palet': {
-          '50': '#f5f5f6',
-          '100': '#e6e6e7',
-          '200': '#cfcfd2',
-          '300': '#aeaeb2',
-          '400': '#85868b',
-          '500': '#6a6b70',
-          '600': '#5b5b5f',
-          '700': '#4d4d51',
-          '800': '#444546',
-          '900': '#3b3b3e',
-          '950': '#2f2f31',
-        },
-      },
-      backgroundImage:{'wall': "url('/wallpaper.jpeg')"}
-
     },
   },
   plugins: [],
